@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 //Created a function ES6
 const auth = (req, res, next) => {
   //Getting the token based on the header
-  const token = req.header("auth-token");
-
+  const token = req.header("x-auth-token");
+  
   //If No token means Send a error code and error message in the response
   if (!token) {
     return res.status(401).json({ msg: "Authorization denied" });

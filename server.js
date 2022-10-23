@@ -1,5 +1,6 @@
 const express = require('express')
 const connectDB = require("./config/db");
+const  routes  = require("./routes/index.js");
 
 //Process Environment COnfiguration
 require('dotenv').config()
@@ -12,7 +13,11 @@ connectDB();
 //bodyparser option
 app.use(express.json({ extended: false }));
 
-app.use('/api/auth',require('./routes/authentication'));
+routes(app);   
+
+
+
+
 
 const PORT = process.env.PORT || 3000 ;
 
